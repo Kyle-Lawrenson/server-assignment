@@ -9,5 +9,5 @@ try {
 catch (error) {
     console.log(error);}
 
-//Exports this file to use elsewhere
+//Exports this file to be used elsewhere
 module.exports = SQLconnection

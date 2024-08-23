@@ -15,5 +15,5 @@ const listUsers = async(req,res) => {
     }
 }
  
-//Exports this file to be used in another file
+//Exports this file to be used elsewhere
 module.exports = listUsers

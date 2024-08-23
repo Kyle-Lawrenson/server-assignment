@@ -17,4 +17,5 @@ userRouter.delete("/users/deleteUser",checkToken,deleteUser);
 userRouter.put("/users/updatePassword",checkToken,updatePassword);
 userRouter.post("/users/login",checkPassword, login);
 
+//Exports this file to be used elsewhere
 module.exports = userRouter;

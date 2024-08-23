@@ -30,5 +30,5 @@ async function checkToken(req,res,next) {
        
     }
 }
- //Eports file to be used 
+//Exports this file to be used elsewhere
 module.exports = checkToken

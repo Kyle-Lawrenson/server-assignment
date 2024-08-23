@@ -25,5 +25,5 @@ async function registerUser(req,res) {
     }
 }
  
-//exports this file to be accessed within whichever file that this gets imported in
+//Exports this file to be used elsewhere
 module.exports = registerUser;

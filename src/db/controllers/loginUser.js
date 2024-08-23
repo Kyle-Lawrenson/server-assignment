@@ -31,5 +31,5 @@ try {
 }
 }
 
-//This exports this file to be imported to another one
+//Exports this file to be used elsewhere
 module.exports = login

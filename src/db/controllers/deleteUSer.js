@@ -17,5 +17,5 @@ const deleteUser = async (req, res) => {
   }
 };
  
-//Export this to be used within another file
+//Exports this file to be used elsewhere
 module.exports = deleteUser;

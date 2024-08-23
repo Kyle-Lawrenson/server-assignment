@@ -27,5 +27,5 @@ async function updatePassword(req,res) {
   }
 }
  
-//Exporting for use within another file
+//Exports this file to be used elsewhere
 module.exports = updatePassword
