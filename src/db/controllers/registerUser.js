@@ -1,4 +1,4 @@
-const User = require("../db/models/users");
+const User = require("../models/userModels");
  
 //this is an A synchronis function that registers User
 async function registerUser(req,res) {

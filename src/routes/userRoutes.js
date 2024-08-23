@@ -1,12 +1,12 @@
 const {Router} = require("express");
 //Shows where to look for stated function
-const registerUser = require("../controllers/registerUser");
+const registerUser = require("../db/controllers/registerUser");
 const hashPassword = require("../middleware/hashPassword");
-const listUsers = require("../controllers/listUsers");
+const listUsers = require("../db/controllers/listUser");
 const checkPassword = require("../middleware/checkPassword");
-const deleteUser = require("../controllers/deleteUser");
-const updatePassword = require("../controllers/changePassword");
-const login = require("../controllers/logIn");
+const deleteUser = require("../db/controllers/deleteUSer");
+const updatePassword = require("../db/controllers/changePassword");
+const login = require("../db/controllers/loginUser");
 const checkToken = require("../middleware/checkToken");
 
 const userRouter = Router();

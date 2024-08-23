@@ -1,4 +1,4 @@
-const User = require("../db/models/users");
+const User = require("../models/userModels");
 const bcrypt = require("bcrypt");
  
 async function updatePassword(req,res) {

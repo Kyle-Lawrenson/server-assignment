@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const SQLconnection = require("./db/connection");
-const User = require("./db/models/users");
+const User = require("./db/models/userModels");
 const userRouter = require("./routes/userRoutes");
 const app = express();
 app.use(express.json())

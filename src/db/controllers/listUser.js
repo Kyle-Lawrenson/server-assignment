@@ -1,4 +1,4 @@
-const User = require("../db/models/users");
+const User = require("../models/userModels");
  
 //Shows all the registerd users within the created table
 const listUsers = async(req,res) => {

@@ -1,4 +1,4 @@
-const User = require("../db/models/users");
+const User = require("../models/userModels");
  
 //This is what deletes a user from the table using thier username
 const deleteUser = async (req, res) => {
