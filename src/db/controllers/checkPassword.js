@@ -11,11 +11,14 @@ async function checkToken(req,res,next) {
         const decodedtoken = await jwt.verify(token,privateKey);
         console.log(decodedtoken);
         const userEmail = decodedtoken.email;
+        //Finds one user via email
         const checkUserExists = await User.findOne({where:{email:userEmail}});
+        //If user doesnt exist throw a new error
         if (checkUserExists === false) {
             throw new Error("User no longer in database")
         } else {
             req.body.email = userEmail;
+            //continue to the next function
             next()
         }
     } catch (error) {
