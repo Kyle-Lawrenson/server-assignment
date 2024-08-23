@@ -1,34 +1,34 @@
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 const User = require("../db/models/userModels");
-
-async function checkToken(req,res,next) {
+ 
+const checkPassword= async (req,res,next) => {
     try {
-        //Creates encrypted password
-        const token = req.header("Authorization").replace("Bearer ","");
-        console.log(token);
-        const privateKey = process.env.JWT_KEY;
-        console.log(privateKey);
-        const decodedtoken = await jwt.verify(token,privateKey);
-        console.log(decodedtoken);
-        const userEmail = decodedtoken.email;
-        //Finds one user via email
-        const checkUserExists = await User.findOne({where:{email:userEmail}});
-        //If user doesnt exist throw a new error
-        if (checkUserExists === false) {
-            throw new Error("User no longer in database")
-        } else {
-            req.body.email = userEmail;
-            //continue to the next function
+        const plainTextPassword = req.body.password;
+        console.log(plainTextPassword);
+        const userDetails= await User.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        console.log(userDetails);
+        const hashedPassword = userDetails.password;
+        console.log(hashedPassword);
+ 
+        const check = await bcrypt.compare(plainTextPassword, hashedPassword);
+        console.log(check);
+        if (check === true) {
             next()
+        } else {
+            res.status(400).send("Password incorrect");
         }
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: "Token Check Failed",
+            message: "ooop something went wrong...",
             errorMessage: error
         })
        
-    }
+    }    
 }
-//Exports this file to be used elsewhere
-module.exports = checkToken
+ 
+module.exports = checkPassword
